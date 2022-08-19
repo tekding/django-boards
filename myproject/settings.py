@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -78,13 +78,13 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-    'default': dj_database_url.config(
-    default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    # 'default': dj_database_url.config(
+    # default=config('DATABASE_URL')
+    # )
 }
 
 
