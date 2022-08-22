@@ -12,4 +12,6 @@ def home(request):
         # response_html = '<br>'.join(boards_names)
         # return HttpResponse (response_html)
         return render(request,'home.html',{'boards':boards})
+def index(request):
+        return render(request,'index.html')
 # Create your views here.
