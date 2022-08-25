@@ -3,33 +3,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Boards</title>
+    <title>燃料电池电动汽车标准状态</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
   </head>
   <body>
     <div class="container">
       <ol class="breadcrumb my-4">
-        <li class="breadcrumb-item active">Boards</li>
+        <li class="breadcrumb-item active">燃料电池电动汽车标准状态</li>
       </ol>
       <table class="table">
         <thead class="thead-inverse">
           <tr>
-            <th>Board</th>
-            <th>Posts</th>
-            <th>Topics</th>
-            <th>Last Post</th>
+            <th>标准类型</th>
+            <th>标准号</th>
+            <th>年代号</th>
+            <th>标准名称</th>
+            <th>标准起草人</th>
           </tr>
         </thead>
      <tbody>
-          {% for board in boards %}
+          {% for standard in standards %}
             <tr>
-              <td>
-                {{ board.name }}
-                <small class="text-muted d-block">{{ board.description }}</small>
+              <td class='align-middle'> {{ standard.stdcat }} </td>
+              <td class="align-middle">{{ standard.stdnum }}</td>
+              <td class="align-middle">{{ standard.stdyear|date:'Y' }}</td>
+              <td class="align-middle">{{standard.stdname }}</td>
+              <td class="align-middle">
+                {% for author in standard.authors.all  %}
+                 {{author.name}}
+                {% endfor %}
               </td>
-              <td class="align-middle">0</td>
-              <td class="align-middle">0</td>
-              <td></td>
             </tr>
           {% endfor %}
         </tbody>
