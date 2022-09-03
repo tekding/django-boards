@@ -14,11 +14,15 @@
       <table class="table">
         <thead class="thead-inverse">
           <tr>
-            <th>标准类型</th>
-            <th>标准号</th>
-            <th>年代号</th>
+            <th>标准类型</th> 
+            <th>标准立项号</th>
             <th>标准名称</th>
-            <th>标准起草人</th>
+            <th>标准下达日期</th>
+            <th>标准工作周期</td>
+            <th>标准状态</th>
+            <th>标准延期周期</th>
+            <th>标准截止日期</th>
+            <th>倒计时</th>
           </tr>
         </thead>
      <tbody>
@@ -26,13 +30,12 @@
             <tr>
               <td class='align-middle'> {{ standard.stdcat }} </td>
               <td class="align-middle">{{ standard.stdnum }}</td>
-              <td class="align-middle">{{ standard.stdyear|date:'Y' }}</td>
               <td class="align-middle">{{standard.stdname }}</td>
-              <td class="align-middle">
-                {% for author in standard.authors.all  %}
-                 {{author.name}}
-                {% endfor %}
-              </td>
+              <td class="align-middle">{{ standard.stdyear|date:'Y' }}</td>
+              <td class="align-middle">{{standard.period}}</td>
+              <td class='align-middle'>{{standard.stddelaystate}}</td>
+              <td class="align-middle">{{standard.stddelay}}</td>
+              
             </tr>
           {% endfor %}
         </tbody>

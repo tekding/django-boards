@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Standard,Author
+from datetime import date
 
 def home(request):
         standards = Standard.objects.all()
